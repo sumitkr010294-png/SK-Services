@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { WhatsappIcon } from "react-share";
 
 export default function WhatsAppFAB() {
   const whatsappUrl = "https://wa.me/919905901353?text=I%20want%20cleaning%20of%20my%20water%20tank";
@@ -22,9 +23,7 @@ export default function WhatsAppFAB() {
         animation: "pulse 2s infinite"
       }}
     >
-      <span className="material-symbols-outlined text-headline-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
-        chat
-      </span>
+      <WhatsappIcon size={24} style={{ color: "white" }} />
       <span className="d-none d-md-inline ms-2 text-label-md fw-bold pe-1">
         WhatsApp
       </span>

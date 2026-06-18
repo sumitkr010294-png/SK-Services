@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import { WhatsappIcon } from 'react-share'; //  Correct casing
 
 // Sub-component that parses query params and renders the page content
 function ContactFormContent() {
@@ -277,7 +278,7 @@ function ContactFormContent() {
                 type="button"
                 onClick={handleWhatsAppRedirect}
               >
-                <span className="material-symbols-outlined text-headline-sm">chat</span>
+                <WhatsappIcon className="text-headline-sm" size={20} />
                 Chat on WhatsApp
               </button>
             </div>
