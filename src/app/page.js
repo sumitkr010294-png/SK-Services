@@ -1,9 +1,30 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("tank");
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+    return () => clearInterval(slideTimer);
+  }, []);
+
+  const slides = [
+    {
+      image: "/solar_panel_main.png",
+      title: "Solar Panel Cleaning",
+      subtitle: "Maximize energy efficiency with professional panel maintenance."
+    },
+    {
+      image: "/house_water_tank_main.png",
+      title: "Home Water Tank Cleaning",
+      subtitle: "Ensuring pure, clean, and sterilized water supply for your household."
+    }
+  ];
 
   const switchTab = (tabId) => {
     setActiveTab(tabId);
@@ -68,10 +89,10 @@ export default function Home() {
                 style={{
                   height: "400px",
                   maxHeight: "80vh",
-                  backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlDwebBlscCreXD04PvmnGBeG02dHclPB5PxM4BhpjJktmagg3xrkKcGuF8E_JsFb7XFXJaiJT9MWoFnj9gLT0s9SpLN6ptk4ip2YtGiowspKV4MOC64hFFO-u_8G-e2RHXVI77_Tqe-FL56zVwDyoM0Xa-XWb8nmOsUOJpmVFhCEHc-nfGGABkBHdV0-cSv9Eu4s0MidW7JajRmYBCZvetUU49gwkJLE71lnCfzNpEoi9g7FgiSMD4F4FaP1pE6APJc0EmKspgmQ")`,
+                  backgroundImage: `url("${slides[currentSlide].image}")`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  transition: "transform 0.5s ease"
+                  transition: "background-image 0.8s ease, transform 0.5s ease"
                 }}
               >
                 {/* Image overlay gradient */}
@@ -81,13 +102,13 @@ export default function Home() {
                     background: "linear-gradient(to top, rgba(0, 39, 86, 0.75), transparent)"
                   }}
                 ></div>
-                <div className="position-absolute bottom-0 start-0 p-4 p-md-5 text-white">
+                <div className="position-absolute bottom-0 start-0 p-4 p-md-5 text-white w-100">
                   <div className="d-flex gap-2 mb-3">
-                    <div className="bg-white rounded-pill" style={{ height: "4px", width: "48px" }}></div>
-                    <div className="bg-white-50 rounded-pill" style={{ height: "4px", width: "48px", opacity: 0.4 }}></div>
+                    <div className="rounded-pill" style={{ height: "4px", width: "48px", backgroundColor: currentSlide === 0 ? "white" : "rgba(255,255,255,0.4)" }}></div>
+                    <div className="rounded-pill" style={{ height: "4px", width: "48px", backgroundColor: currentSlide === 1 ? "white" : "rgba(255,255,255,0.4)" }}></div>
                   </div>
-                  <h3 className="text-headline-md mb-2">Industrial Hygiene Standards</h3>
-                  <p className="text-body-md text-white-50 mb-0">Ensuring health with medical-grade sanitization protocols.</p>
+                  <h3 className="text-headline-md mb-2">{slides[currentSlide].title}</h3>
+                  <p className="text-body-md text-white-50 mb-0">{slides[currentSlide].subtitle}</p>
                 </div>
               </div>
             </div>
@@ -126,7 +147,7 @@ export default function Home() {
                       className="rounded-3"
                       style={{
                         height: "180px",
-                        backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQJH-JreN0-1ekbqGIEVcbz-OLhRegUA19AhwR8jqBMWFa5mMVtBNL8yf8VFv41trsIPeWDd7XJ1rbJdpJO6BYiHBw_vZ9l20xNLpV1Imz9cdDXmGX_pIOTITMXUF2Pj3hR2CM6qRl5f7ZeC5ExPUO3WGw5FIoTS4sHRGRpKfEQgVq9-hIExdkR2pK_nYbyASD3uo5GETjPQYM7kuSp0DgSd86Fdx-AMOMbTnKPZHd_tZLkNxNKh64JLWpUv6ngsBfTPv7DJ2kZwc")`,
+                        backgroundImage: `url("/house_water_tank_main.png")`,
                         backgroundSize: "cover",
                         backgroundPosition: "center"
                       }}
@@ -137,7 +158,7 @@ export default function Home() {
                       className="rounded-3"
                       style={{
                         height: "120px",
-                        backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvtDY_6JUnD2Xsd77J0sgOhQcmauQz_EvNootROqCwRvVLXesEMQ-5U-pd6RHHnXeNiyHFiK98vJ4QHrX8wD_uq3ZGxtG2mCQngl2RFBusLjQ1w09M35yAsUJxyhMcoLG1gUAL1P2pTl10FWDSttcsJV9JQ6gVqRtdM8fl6qVdJjYYPF9YQ1RdPI1hYfxbFLgztsDzhEHWqpuhV6rLNk23haFaOIu0cYn3hlAvThx0Sr4hQ0jBTBDfwBmWgaZddmHwJPtOqfayrb8")`,
+                        backgroundImage: `url("/house_water_tank_small1.png")`,
                         backgroundSize: "cover",
                         backgroundPosition: "center"
                       }}
@@ -148,7 +169,7 @@ export default function Home() {
                       className="rounded-3"
                       style={{
                         height: "120px",
-                        backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuAP4xoVX3NrZX8iGezA49g5Z3ZRQgSiO23yuBy5CM3CPtkJF5CbCW53wrgR5brWkpIjH3KS1CJbb2u6432eaGgpQlmGZH0x355UhUry_MjmgBCpxpSqpahupqEZayOUo-x74LpkRFcQWgsvdSIjVahrMkPZwIbtVUduj2pvZLfHVFcjnCHP9p8JHolPnwrAWqTxbxoA8K_WdcKYJRTtT0qAtX2FmnV_Py6KEYRd74AKy9kWPyG-iRoYFOetAAdU-EQa9smg0bznJK4")`,
+                        backgroundImage: `url("/house_water_tank_small2.png")`,
                         backgroundSize: "cover",
                         backgroundPosition: "center"
                       }}
@@ -164,6 +185,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+
 
             {/* Pillar B: Solar */}
             <div className="col-12 col-md-6">

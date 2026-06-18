@@ -36,7 +36,7 @@ function ContactFormContent() {
 
     // Web3Forms API Endpoint
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
-    
+
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -91,7 +91,7 @@ function ContactFormContent() {
       <aside className="col-12 col-lg-5 order-2 order-lg-1">
         <div className="bg-white p-4 p-md-5 rounded-3 form-shadow border border-outline-variant/30 h-100">
           <h2 className="text-headline-md text-primary mb-4">Contact Details</h2>
-          
+
           <div className="d-flex flex-column gap-4">
             {/* Proprietor */}
             <div className="d-flex align-items-start gap-3">
@@ -154,11 +154,10 @@ function ContactFormContent() {
             <img
               alt="Professional water tank sanitization"
               className="w-100 h-100 object-fit-cover transition-all"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlDwebBlscCreXD04PvmnGBeG02dHclPB5PxM4BhpjJktmagg3xrkKcGuF8E_JsFb7XFXJaiJT9MWoFnj9gLT0s9SpLN6ptk4ip2YtGiowspKV4MOC64hFFO-u_8G-e2RHXVI77_Tqe-FL56zVwDyoM0Xa-XWb8nmOsUOJpmVFhCEHc-nfGGABkBHdV0-cSv9Eu4s0MidW7JajRmYBCZvetUU49gwkJLE71lnCfzNpEoi9g7FgiSMD4F4FaP1pE6APJc0EmKspgmQ"
+              src="/house_water_tank_small1.png"
               style={{
-                filter: "grayscale(100%)",
-                opacity: 0.8,
-                transition: "filter 0.5s ease, opacity 0.5s ease"
+                opacity: 0.9,
+                transition: "opacity 0.5s ease"
               }}
             />
             <div
@@ -272,7 +271,7 @@ function ContactFormContent() {
                   </>
                 )}
               </button>
-              
+
               <button
                 className="flex-fill btn-custom-whatsapp text-label-md py-3 d-flex align-items-center justify-content-center gap-2 fw-semibold"
                 type="button"

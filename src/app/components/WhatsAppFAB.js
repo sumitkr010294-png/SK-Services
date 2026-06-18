@@ -2,7 +2,7 @@
 import React from "react";
 
 export default function WhatsAppFAB() {
-  const whatsappUrl = "https://wa.me/919905901353?text=Hi%20SK%20Services%2C%20I%20am%20interested%20in%20your%20services.";
+  const whatsappUrl = "https://wa.me/919905901353?text=I%20want%20cleaning%20of%20my%20water%20tank";
 
   return (
     <a
